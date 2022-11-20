@@ -33,6 +33,7 @@ export default {
   props: ['teamId'],
   created() {
     this.loadMembers(this.teamId);
+    console.log(this.$route.query);
   },
   watch: {
     // watch for changes on $route to do updates even if I'm on the same component, but dynamic parameter changes
