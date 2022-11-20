@@ -31,7 +31,25 @@ const router = createRouter({
         // { path: '/:notFound(.*)', redirect: '/teams'}
         { path: '/:notFound(.*)', component: NotFound}
     ],
-    linkActiveClass: 'active'
+    linkActiveClass: 'active',
+    /**
+     * Method called every time the page is refreshed.
+     * Help to control the scroll of the page when navigating in the application.
+     * @param {*} to : route where I'm going
+     * @param {*} from : router where I'm coming from
+     * @param {*} savedPosition : scroll position that I had before I clicked the 'back' button (otherwise is null). Contains fields left e top.
+     */
+    scrollBehavior(to, from, savedPosition) {
+        // console.log(to);
+        // console.log(from);
+        // console.log(savedPosition);
+
+        if(savedPosition) {
+            return savedPosition;
+        }
+
+        return {left: 0, top: 0}; // top of the page
+    }
 });
 
 const app = createApp(App)
