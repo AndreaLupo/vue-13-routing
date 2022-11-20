@@ -10,3 +10,4 @@ This project explains how:
 - pass props to a route
 - Redirect
 - Catch all route
+- nested routes
