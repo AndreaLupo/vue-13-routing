@@ -43,7 +43,7 @@ const router = createRouter({
         // console.log(to);
         // console.log(from);
         // console.log(savedPosition);
-
+        console.log('Scroll behavior', to, from);
         if(savedPosition) {
             return savedPosition;
         }
@@ -52,7 +52,26 @@ const router = createRouter({
     }
 });
 
-const app = createApp(App)
+/**
+ * @param {*} to : route where I'm going
+ * @param {*} from : router where I'm coming from\
+ * @param {*} next : function to call to confirm or reject navigation action
+ */
+router.beforeEach(function(to, from, next) {
+    console.log('Global beforeEach');
+    console.log(to, from);
+    
+    /*  forward everything to team-members/t2 page
+    if(to.name === 'team-members') {
+        next(); // avoid infinite loops
+    } else {
+        next({name: 'team-members', params: {teamId: 't2'}});
+    } */
+    
+    next(); // confirm the navigation
+});
+
+const app = createApp(App);
 
 app.use(router);
 

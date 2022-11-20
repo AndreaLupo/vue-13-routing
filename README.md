@@ -14,3 +14,5 @@ This project explains how:
 - named routes to identify a route
 - query parameters
 - usage of many router-view at the same level (in same component), within the same rout
+- control the scroll with `scrollBehaviour`
+- navigation guards to verify every routes
