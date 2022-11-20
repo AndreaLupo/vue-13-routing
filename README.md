@@ -16,3 +16,4 @@ This project explains how:
 - usage of many router-view at the same level (in same component), within the same rout
 - control the scroll with `scrollBehaviour`
 - navigation guards to verify every routes
+- navigation guards on specific component

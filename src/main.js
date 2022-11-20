@@ -78,6 +78,14 @@ router.beforeEach(function(to, from, next) {
     next(); // confirm the navigation
 });
 
+/**
+ * Run when the navigation is already confirmed.
+ */
+router.afterEach(function(to, from) {
+    // sending analytics data (log navigation action)
+    console.log('Global after each', to, from);
+});
+
 const app = createApp(App);
 
 app.use(router);
