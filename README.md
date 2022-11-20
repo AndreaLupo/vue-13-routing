@@ -17,3 +17,6 @@ This project explains how:
 - control the scroll with `scrollBehaviour`
 - navigation guards to verify every routes
 - navigation guards on specific component
+- afterEach
+- beforeRouteLeave to avoid to leave a component if some conditions are not met (for example, a form completed partially)
+- custom route meta field 

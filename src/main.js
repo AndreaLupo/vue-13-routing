@@ -29,6 +29,9 @@ const router = createRouter({
                 default: UsersList, 
                 footer: UsersFooter
             },
+            meta: {
+                needsAuth: true
+            },
             beforeEnter(to, from, next) {
                 console.log('Users beforeEnter');
                 console.log(to, from);
@@ -68,6 +71,11 @@ router.beforeEach(function(to, from, next) {
     console.log('Global beforeEach');
     console.log(to, from);
     
+    if(to.meta.needsAuth) {
+        console.log('Check auth..');
+
+    }
+
     /*  forward everything to team-members/t2 page
     if(to.name === 'team-members') {
         next(); // avoid infinite loops
