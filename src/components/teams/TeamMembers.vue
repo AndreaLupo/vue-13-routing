@@ -34,12 +34,15 @@ export default {
   created() {
     this.loadMembers(this.teamId);
   },
-  /* watch: {
+  watch: {
     // watch for changes on $route to do updates even if I'm on the same component, but dynamic parameter changes
-    $route(newRoute) {
+    /* $route(newRoute) {
       this.loadMembers(newRoute);
+    } */
+    teamId() {
+      this.loadMembers(this.teamId);
     }
-  }, */
+  },
   methods: {
     loadMembers(teamId) {
       const selectedTeam = this.teams.find(team => team.id === teamId);
