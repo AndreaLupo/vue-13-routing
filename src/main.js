@@ -24,10 +24,17 @@ const router = createRouter({
                 { name: 'team-members', path: ':teamId', component: TeamMembers, props: true },
             ] 
         },
-        { path: '/users', components: {
-            default: UsersList, 
-            footer: UsersFooter
-        } },
+        { 
+            path: '/users', components: {
+                default: UsersList, 
+                footer: UsersFooter
+            },
+            beforeEnter(to, from, next) {
+                console.log('Users beforeEnter');
+                console.log(to, from);
+                next();
+            }
+        },
         // { path: '/:notFound(.*)', redirect: '/teams'}
         { path: '/:notFound(.*)', component: NotFound}
     ],

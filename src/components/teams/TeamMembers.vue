@@ -35,6 +35,15 @@ export default {
     this.loadMembers(this.teamId);
     console.log(this.$route.query);
   },
+  /**
+   * Called when the route update and reuse the same component that were already used.
+   * Alternartive to watch.
+   */
+  beforeRouteUpdate(to, from, next) {
+    console.log('TeamMembers cmp beforeRouteUpdate');
+    // this.loadTeamMembers(to.params.teamId);
+    next();
+  },
   watch: {
     // watch for changes on $route to do updates even if I'm on the same component, but dynamic parameter changes
     /* $route(newRoute) {
